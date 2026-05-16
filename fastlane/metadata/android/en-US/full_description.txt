@@ -1,0 +1,16 @@
+SealedNotes is a simple, private notes app that works entirely offline. All your notes are stored in an encrypted database on your device. No cloud, no accounts, no tracking.
+
+Features:
+• Text notes and checklists
+• Time-based reminders with notifications
+• Recurring reminders (daily, weekly, monthly)
+• Labels for organization
+• Full-text search
+• Pin and archive notes
+• Dark mode interface
+• Encrypted database backup and restore
+• Easy migration between devices
+
+SealedNotes is designed as a privacy-respecting replacement for Google Keep. It requires no internet connection and makes no network requests. Your data never leaves your device unless you explicitly export it.
+
+The app uses SQLCipher for database encryption and Android Keystore for secure key storage. Migration to a new device is done by exporting the database file and encryption key.
