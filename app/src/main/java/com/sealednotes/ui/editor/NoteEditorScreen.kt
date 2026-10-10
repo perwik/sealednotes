@@ -37,6 +37,7 @@ import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextDecoration
 import androidx.compose.ui.unit.dp
@@ -185,11 +186,17 @@ fun NoteEditorScreen(
             return@Scaffold
         }
 
+        val layoutDirection = LocalLayoutDirection.current
+        val imeBottom = WindowInsets.ime.asPaddingValues().calculateBottomPadding()
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(padding)
-                .imePadding()
+                .padding(
+                    top = padding.calculateTopPadding(),
+                    start = padding.calculateStartPadding(layoutDirection),
+                    end = padding.calculateEndPadding(layoutDirection),
+                    bottom = maxOf(padding.calculateBottomPadding(), imeBottom),
+                )
                 .padding(horizontal = 16.dp),
         ) {
             TextField(
